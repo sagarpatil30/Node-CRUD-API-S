@@ -1,0 +1,61 @@
+What is Schema??
+
+In the context of databases, a schema is a blueprint or plan
+that describes the structure of data in a database. 
+
+It defines the tables, fields, relationships, and other attributes that will be used to organize and store data.
+
+In MongoDB, which is a NoSQL database system, schemas are defined using JSON-like documents
+called BSON (Binary JSON) documents. Mongoose is an Object Data Modeling (ODM) library for MongoDB 
+and it uses Schemas to define the shape of the documents within a collection.
+
+A Mongoose Schema will map to a MongoDB collection 
+and defines the shape/structure of documents within that collection.
+-------------------------------------------------------------------------------------------------------------
+
+Here are some of the most commonly used data types in a Mongoose schema:
+
+    String: Used for string data types such as names, email addresses, and other text-based information.
+
+    Number: Used for storing numeric values like age, prices, ratings, etc.
+
+    Boolean: Used to store true/false values, such as whether or not a user has subscribed to a mailing list.
+
+    Date: Used to store dates. By default, Mongoose stores dates as ISOStrings, but they can also be stored as Unix timestamps or native JS dates.
+
+    Buffer: Used to store binary data, such as images or PDFs.
+
+    Array: Used to store arrays of subdocuments or primitive data types like strings or numbers.
+
+    ObjectId: Used to refer to other documents in a collection. This is particularly useful when working with related data sets across multiple collections.
+
+    Mixed: Used when you don't know what type of data will be stored in a field.
+
+Here's an example of a Mongoose schema that uses all of these data types:
+
+const mongoose = require('mongoose');
+
+const mySchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  isActive: Boolean,
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  avatar: Buffer,
+  interests: [String],
+  friends: [{
+    name: String,
+    age: Number,
+    city: String
+  }],
+  address: {
+    street: String,
+    city: String,
+    state: String,
+    zip: Number
+  },
+  ownerId: mongoose.ObjectId,
+  data: mongoose.Schema.Types.Mixed
+});

@@ -1,0 +1,10 @@
+What is middleware?
+
+Middleware is a function that connects the client-side and server-side of an application. 
+It is a piece of code that runs in the middle of a request-response cycle.
+
+This middleware is used to parse incoming requests with JSON payloads. 
+When you send JSON data in the body of a request, express.json() parses 
+the data and makes it available in req.body.
+
+For example, if you were to send a POST request to your server with JSON data in the body 
