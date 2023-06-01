@@ -79,7 +79,7 @@ app.delete('/products/:id', async (req, res) => {
     }
 })
 
-mongoose.connect('mongodb+srv://Sagarpatil123:Sagarpatil123@cluster0.aif9pez.mongodb.net/Node-crud-api?retryWrites=true&w=majority')
+mongoose.connect('')
     .then(() => {
         console.log('Connected to Mongo-DB');
         app.listen(3002, () => {
