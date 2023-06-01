@@ -3,9 +3,12 @@ const express = require('express')
 //include external modules in your application. 
 const app = express()
 
+require('dotenv').config();
+
 const Product = require('./models/productModel')
 const mongoose = require('mongoose');
 //to bulid the connection to mongoDB
+
 
 app.use(express.json())
 
@@ -76,13 +79,6 @@ app.delete('/products/:id', async (req, res) => {
     }
 })
 
-
-
-
-
-
-
-
 mongoose.connect('mongodb+srv://Sagarpatil123:Sagarpatil123@cluster0.aif9pez.mongodb.net/Node-crud-api?retryWrites=true&w=majority')
     .then(() => {
         console.log('Connected to Mongo-DB');
@@ -92,3 +88,5 @@ mongoose.connect('mongodb+srv://Sagarpatil123:Sagarpatil123@cluster0.aif9pez.mon
     }).catch((error) => {
         console.log(error);
     })
+
+
